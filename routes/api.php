@@ -19,7 +19,12 @@ use Illuminate\Support\Facades\Log;
 Route::group(['middleware' => 'api'], function() {
     Route::get('articles',  function() {
         Log::info('article index');
-        $articles = Article::all()->take(5);
+        // $articles = Article::all()->take(5);
+
+        $articles = Article::orderBy('id', 'desc')
+               ->take(5)
+               ->get();
+
         return $articles;
     });
 
