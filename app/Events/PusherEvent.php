@@ -45,7 +45,7 @@ class PusherEvent extends Event implements ShouldBroadcast
     public function broadcastWith()
     {
         return [
-            'message' => 'laravel reference',
+            'message' => $this->message,
             'name' => 'saji',
         ];
     }

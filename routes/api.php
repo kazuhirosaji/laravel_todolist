@@ -48,6 +48,9 @@ Route::group(['middleware' => 'api'], function() {
         //ユーザーに関連づけて保存
        	$article->save();
 
+        Log::info('new pusher event');
+        event(new App\Events\PusherEvent($article->title));
+
         //テストのためtitile、contentのデータをリターン
         return ['title' => request('title'),'content' => request('content')];
     });
