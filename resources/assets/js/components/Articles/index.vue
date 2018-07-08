@@ -11,6 +11,10 @@
                 {{ article.content }}
             </p>
         </div>
+
+        <input type="button" value="push" v-on:click="notify_event">
+        <ul id="messages"></ul>
+
     </div>
 
 </template>
@@ -18,7 +22,7 @@
 <script>
     export default {
         created() {
-            this.fetchArticles()
+            this.fetchArticles();
         },
         data() {
             return {
@@ -32,7 +36,13 @@
                     this.articles = res.data
                     console.log(this.articles);
                 })
+            },
+            notify_event() {
+                console.log('notify event');
+                this.$http.get('/api/pusher');
             }
         }
     }
+
 </script>
+

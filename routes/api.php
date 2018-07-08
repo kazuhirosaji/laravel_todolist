@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,19 +18,16 @@ use App\Models\User;
 
 Route::group(['middleware' => 'api'], function() {
     Route::get('articles',  function() {
+        Log::info('article index');
         $articles = Article::all()->take(5);
         return $articles;
     });
 
 	Route::get('article/{id}', function ($id) {
+        Log::info('article detail');
 		$article = Article::find($id);
 		return $article;
 	});
-
-    Route::get('article',  function() {
-        $articles = Article::all()->take(5);
-        return $articles;
-    });
 
     // 記事を投稿す処理
     Route::post('/article/{id}',function($id){
@@ -48,6 +46,13 @@ Route::group(['middleware' => 'api'], function() {
         //テストのためtitile、contentのデータをリターン
         return ['title' => request('title'),'content' => request('content')];
     });
+
+    Route::get('/pusher', function() {
+        Log::info('new pusher event');
+        event(new App\Events\PusherEvent('hello saji!'));
+        return 'return pusher';
+    });
+
 
 });
 
