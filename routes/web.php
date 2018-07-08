@@ -11,15 +11,15 @@
 |
 */
 
-// Route::get('/{any}', function () {
-//     return view('app');
-// })->where('any', '.*');
+Route::get('/{any}', function () {
+    return view('app');
+})->where('any', '.*');
 
-Route::get('/', function() {
-    return view('pusher');
-});
+// Route::get('/', function() {
+//     return view('pusher');
+// });
 
-Route::get('/pusher', function() {
-	echo 'hello world';
-	event(new App\Events\PusherEvent('hello saji!'));
-});
+// Route::get('/pusher', function() {
+// 	echo 'hello world';
+// 	event(new App\Events\PusherEvent('hello saji!'));
+// });

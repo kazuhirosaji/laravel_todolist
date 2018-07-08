@@ -21,7 +21,7 @@
     function addMessage(data) {
         console.log('addMessage');
         console.log(data.message);
-        $('#messages').prepend(data.message);
+        $('#messages').prepend(data.message + ' : ' + data.name);
     }
 
     function push(){
