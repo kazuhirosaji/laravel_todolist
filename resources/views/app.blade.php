@@ -35,15 +35,11 @@
             var channel = pusher.subscribe('my-channel');
 
             function addMessage(data) {
-                console.log('addMessage');
-                console.log(data.message);
-                $('#messages').prepend(data.message + ' : ' + data.name);
+                $('#messages').prepend(data.message['title'] + ' : ' + data.message['content']);
             }
 
             //Laravelのクラス
             channel.bind('reference.event', addMessage);
-            console.log(channel);
-            console.log('start pusher');
         </script>
     </body>
     <script src="{{ mix('js/app.js') }}"></script>

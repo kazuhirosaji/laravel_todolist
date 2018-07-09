@@ -45,8 +45,7 @@ class PusherEvent extends Event implements ShouldBroadcast
     public function broadcastWith()
     {
         return [
-            'message' => $this->message,
-            'name' => 'saji',
+            'message' => $this->message
         ];
     }
 

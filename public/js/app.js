@@ -50075,11 +50075,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.$http.get('/api/articles').then(function (res) {
                 _this.articles = res.data;
-                console.log(_this.articles);
             });
         },
         notify_event: function notify_event() {
-            console.log('notify event');
             this.$http.get('/api/pusher');
         }
     }

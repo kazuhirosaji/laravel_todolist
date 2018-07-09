@@ -34,11 +34,9 @@
                 this.$http.get('/api/articles')
                 .then(res =>  {
                     this.articles = res.data
-                    console.log(this.articles);
                 })
             },
             notify_event() {
-                console.log('notify event');
                 this.$http.get('/api/pusher');
             }
         }

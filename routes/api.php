@@ -49,7 +49,7 @@ Route::group(['middleware' => 'api'], function() {
        	$article->save();
 
         Log::info('new pusher event');
-        event(new App\Events\PusherEvent($article->title));
+        event(new App\Events\PusherEvent($article));
 
         //テストのためtitile、contentのデータをリターン
         return ['title' => request('title'),'content' => request('content')];
@@ -57,10 +57,9 @@ Route::group(['middleware' => 'api'], function() {
 
     Route::get('/pusher', function() {
         Log::info('new pusher event');
-        event(new App\Events\PusherEvent('hello saji!'));
+        event(new App\Events\PusherEvent(['title' => 'title', 'content' => 'pusher event']));
         return 'return pusher';
     });
-
 
 });
 
