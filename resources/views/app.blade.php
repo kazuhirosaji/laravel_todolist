@@ -26,20 +26,20 @@
         </div>
         <script>
             //Pusherキー
-            var pusher = new Pusher("{{ env('PUSHER_APP_KEY') }}", {
-                encrypted: true,
-                cluster: 'ap1'
-            });
+            // var pusher = new Pusher("{{ env('PUSHER_APP_KEY') }}", {
+            //     encrypted: true,
+            //     cluster: 'ap1'
+            // });
 
             //LaravelのEventクラスで設定したチャンネル名
-            var channel = pusher.subscribe('my-channel');
+            // var channel = pusher.subscribe('my-channel');
 
-            function addMessage(data) {
-                $('#messages').prepend(data.message['title'] + ' : ' + data.message['content']);
-            }
+            // function addMessage(data) {
+            //     $('#messages').prepend(data.message['title'] + ' : ' + data.message['content']);
+            // }
 
             //Laravelのクラス
-            channel.bind('reference.event', addMessage);
+            // channel.bind('reference.event', addMessage);
         </script>
     </body>
     <script src="{{ mix('js/app.js') }}"></script>

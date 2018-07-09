@@ -20,24 +20,43 @@
 </template>
 
 <script>
+
     export default {
         created() {
             this.fetchArticles();
         },
         data() {
             return {
-                articles: []
+                articles: [],
+                pusher: null,
+                channel: null,
             }
         },
+
+
         methods: {
             fetchArticles() {
                 this.$http.get('/api/articles')
                 .then(res =>  {
                     this.articles = res.data
-                })
+                });
+
+                this.pusher = new Pusher("d34f42409f7dad1dc6ef", {
+                    encrypted: true,
+                    cluster: 'ap1'
+                });
+
+                //LaravelのEventクラスで設定したチャンネル名
+                this.channel = this.pusher.subscribe('my-channel');
+
+                //Laravelのクラス
+                this.channel.bind('reference.event', this.add_message);
             },
             notify_event() {
                 this.$http.get('/api/pusher');
+            },
+            add_message(data) {
+                $('#messages').prepend(data.message['title'] + ' / ' + data.message['content']);
             }
         }
     }
