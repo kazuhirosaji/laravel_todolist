@@ -49967,11 +49967,15 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("nav", { staticClass: "navbar navbar-default" }, [
-    _c(
-      "li",
-      [_c("router-link", { attrs: { to: "/about" } }, [_vm._v("About")])],
-      1
-    )
+    _c("ul", [
+      _c("li", [_c("router-link", { attrs: { to: "/" } }, [_vm._v("Top")])], 1),
+      _vm._v(" "),
+      _c(
+        "li",
+        [_c("router-link", { attrs: { to: "/about" } }, [_vm._v("About")])],
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = []
