@@ -34,7 +34,7 @@ Route::group(['middleware' => 'api'], function() {
 		return $article;
 	});
 
-    // 記事を投稿す処理
+    // 記事を投稿する処理
     Route::post('/article/{id}',function($id){
         //投稿するユーザーを取得
         // $user = User::where('id',$id)->first();

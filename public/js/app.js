@@ -50079,11 +50079,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         fetchArticles: function fetchArticles() {
-            var _this = this;
-
-            this.$http.get('/api/articles').then(function (res) {
-                _this.articles = res.data;
-            });
+            this.get_articles();
 
             this.pusher = new Pusher("d34f42409f7dad1dc6ef", {
                 encrypted: true,
@@ -50096,11 +50092,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             //Laravelのクラス
             this.channel.bind('reference.event', this.add_message);
         },
+        get_articles: function get_articles() {
+            var _this = this;
+
+            console.log('request api/articles');
+            axios.get('/api/articles').then(function (res) {
+                console.log('api/articles responsed');
+                _this.articles = res.data;
+            });
+        },
         notify_event: function notify_event() {
             this.$http.get('/api/pusher');
         },
         add_message: function add_message(data) {
             $('#messages').prepend(data.message['title'] + ' / ' + data.message['content']);
+            this.get_articles();
         }
     }
 });

@@ -36,10 +36,7 @@
 
         methods: {
             fetchArticles() {
-                this.$http.get('/api/articles')
-                .then(res =>  {
-                    this.articles = res.data
-                });
+                this.get_articles();
 
                 this.pusher = new Pusher("d34f42409f7dad1dc6ef", {
                     encrypted: true,
@@ -52,11 +49,19 @@
                 //Laravelのクラス
                 this.channel.bind('reference.event', this.add_message);
             },
+            get_articles() {
+                console.log('request api/articles');
+                axios.get('/api/articles').then(res => {
+                    console.log('api/articles responsed');
+                    this.articles = res.data;
+                });
+            },
             notify_event() {
                 this.$http.get('/api/pusher');
             },
             add_message(data) {
                 $('#messages').prepend(data.message['title'] + ' / ' + data.message['content']);
+                this.get_articles();
             }
         }
     }
