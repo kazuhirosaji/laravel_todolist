@@ -1,8 +1,6 @@
 <template>
     <div>
-        <p>
-            <router-link to='/article/create'>記事作成</router-link>
-        </p>  
+        <create-article></create-article>
         <div v-for="article in articles">
             <h1>
                 <router-link :to="'/articles/' + article.id">{{ article.title }}</router-link>

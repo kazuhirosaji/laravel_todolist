@@ -19,14 +19,13 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 Vue.component('navbar', require('./components/Layouts/Navbar.vue'))
+Vue.component('create-article', require('./components/Articles/create.vue'))
 
 const router = new VueRouter({
     mode: 'history',
     routes: [
         { path: '/', component: require('./components/Articles/Index.vue') },
 	    { path: '/articles/:id', component: require('./components/Articles/detail.vue') },
-        // 記事投稿フォームページ
-        { path: '/article/create', component: require('./components/Articles/create.vue') },
         { path: '/about', component: require('./components/About.vue') },
     ]
 })

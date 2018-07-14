@@ -24975,12 +24975,11 @@ __webpack_require__(18);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('navbar', __webpack_require__(41));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('create-article', __webpack_require__(49));
 
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     mode: 'history',
-    routes: [{ path: '/', component: __webpack_require__(43) }, { path: '/articles/:id', component: __webpack_require__(46) },
-    // 記事投稿フォームページ
-    { path: '/article/create', component: __webpack_require__(49) }, { path: '/about', component: __webpack_require__(52) }]
+    routes: [{ path: '/', component: __webpack_require__(43) }, { path: '/articles/:id', component: __webpack_require__(46) }, { path: '/about', component: __webpack_require__(52) }]
 });
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
@@ -50060,8 +50059,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -50122,15 +50119,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c(
-        "p",
-        [
-          _c("router-link", { attrs: { to: "/article/create" } }, [
-            _vm._v("記事作成")
-          ])
-        ],
-        1
-      ),
+      _c("create-article"),
       _vm._v(" "),
       _vm._l(_vm.articles, function(article) {
         return _c("div", [
