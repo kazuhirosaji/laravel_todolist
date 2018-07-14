@@ -50059,6 +50059,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -50098,6 +50099,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.articles = res.data;
             });
         },
+        delete_article: function delete_article(id) {
+            console.log('delete_article' + id);
+            axios.delete('/api/article/' + id).then(function (res) {
+                console.log('api/delte responsed');
+            });
+        },
         notify_event: function notify_event() {
             this.$http.get('/api/pusher');
         },
@@ -50135,7 +50142,19 @@ var render = function() {
           _vm._v(" "),
           _c("p", [
             _vm._v("\n            " + _vm._s(article.content) + "\n        ")
-          ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              on: {
+                click: function($event) {
+                  _vm.delete_article(article.id)
+                }
+              }
+            },
+            [_vm._v("delete")]
+          )
         ])
       }),
       _vm._v(" "),

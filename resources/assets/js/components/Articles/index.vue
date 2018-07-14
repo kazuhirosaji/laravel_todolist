@@ -8,6 +8,7 @@
             <p>
                 {{ article.content }}
             </p>
+            <button v-on:click="delete_article(article.id)">delete</button>
         </div>
 
         <input type="button" value="push" v-on:click="notify_event">
@@ -52,6 +53,12 @@
                 axios.get('/api/articles').then(res => {
                     console.log('api/articles responsed');
                     this.articles = res.data;
+                });
+            },
+            delete_article(id) {
+                console.log('delete_article' + id);
+                axios.delete('/api/article/' + id).then(res => {
+                    console.log('api/delte responsed');
                 });
             },
             notify_event() {

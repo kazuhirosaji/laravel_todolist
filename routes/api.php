@@ -55,6 +55,12 @@ Route::group(['middleware' => 'api'], function() {
         return ['title' => request('title'),'content' => request('content')];
     });
 
+    Route::delete('/article/{id}', function ($id) {
+        $res = Article::destroy($id);
+        event(new App\Events\PusherEvent(['title' => 'title', 'content' => 'pusher event']));
+        Log::info($res);
+    });
+
     Route::get('/pusher', function() {
         Log::info('new pusher event');
         event(new App\Events\PusherEvent(['title' => 'title', 'content' => 'pusher event']));

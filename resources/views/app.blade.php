@@ -14,6 +14,7 @@
                 csrfToken: "{{ csrf_token() }}"
             };
         </script>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
     <body>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -24,23 +25,6 @@
                 <router-view></router-view>
             </div>
         </div>
-        <script>
-            //Pusherキー
-            // var pusher = new Pusher("{{ env('PUSHER_APP_KEY') }}", {
-            //     encrypted: true,
-            //     cluster: 'ap1'
-            // });
-
-            //LaravelのEventクラスで設定したチャンネル名
-            // var channel = pusher.subscribe('my-channel');
-
-            // function addMessage(data) {
-            //     $('#messages').prepend(data.message['title'] + ' : ' + data.message['content']);
-            // }
-
-            //Laravelのクラス
-            // channel.bind('reference.event', addMessage);
-        </script>
     </body>
     <script src="{{ mix('js/app.js') }}"></script>
 </html>
