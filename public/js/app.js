@@ -24975,11 +24975,11 @@ __webpack_require__(18);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('navbar', __webpack_require__(41));
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('create-article', __webpack_require__(49));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('create-article', __webpack_require__(43));
 
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     mode: 'history',
-    routes: [{ path: '/', component: __webpack_require__(43) }, { path: '/articles/:id', component: __webpack_require__(46) }, { path: '/about', component: __webpack_require__(52) }]
+    routes: [{ path: '/', component: __webpack_require__(46) }, { path: '/articles/:id', component: __webpack_require__(49) }, { path: '/about', component: __webpack_require__(52) }]
 });
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
@@ -50013,6 +50013,188 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
+Component.options.__file = "resources/assets/js/components/Articles/create.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-ebc215b2", Component.options)
+  } else {
+    hotAPI.reload("data-v-ebc215b2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 44 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    // コンポーネント作成時に実行する処理を定義
+    // created() {
+    // 今回は特に処理はありません
+    // },
+
+    // テンプレート内で使う変数を定義
+    data: function data() {
+        return {
+            title: '',
+            content: ''
+        };
+    },
+
+    // メソッドの定義。ここでv-on:click=''で記述したpostArticle()メソッドを定義します
+    methods: {
+        postArticle: function postArticle() {
+            // テンプレートのv-modelのtitleとcontentの入力値を取得しarticleという配列に格納
+            var article = {
+                'title': this.title,
+                'content': this.content
+            };
+
+            var id = 1;
+
+            // axios.postの第１引数にルートを、第２引数にポストするデータの配列を渡します
+            axios.post('/api/article/' + id, article).then(function (res) {
+
+                // テストのため返り値をコンソールに表示
+                console.log(res.data.title);
+                console.log(res.data.content);
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", [
+      _c("h4", [_vm._v("記事投稿")]),
+      _vm._v(" "),
+      _c("div", [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.title,
+              expression: "title"
+            }
+          ],
+          attrs: { type: "text", name: "title", placeholder: "タイトル" },
+          domProps: { value: _vm.title },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.title = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.content,
+              expression: "content"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { rows: "4", placeholder: "コンテンツ" },
+          domProps: { value: _vm.content },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.content = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.title))]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.content))]),
+        _vm._v(" "),
+        _c("button", { on: { click: _vm.postArticle } }, [_vm._v("投稿")])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-ebc215b2", module.exports)
+  }
+}
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(47)
+/* template */
+var __vue_template__ = __webpack_require__(48)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
 Component.options.__file = "resources/assets/js/components/Articles/Index.vue"
 
 /* hot reload */
@@ -50035,7 +50217,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 44 */
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50116,7 +50298,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 45 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -50179,15 +50361,15 @@ if (false) {
 }
 
 /***/ }),
-/* 46 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(47)
+var __vue_script__ = __webpack_require__(50)
 /* template */
-var __vue_template__ = __webpack_require__(48)
+var __vue_template__ = __webpack_require__(51)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -50226,7 +50408,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 47 */
+/* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50261,7 +50443,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 48 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -50283,188 +50465,6 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-0a848c08", module.exports)
-  }
-}
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = __webpack_require__(50)
-/* template */
-var __vue_template__ = __webpack_require__(51)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/Articles/create.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-ebc215b2", Component.options)
-  } else {
-    hotAPI.reload("data-v-ebc215b2", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 50 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    // コンポーネント作成時に実行する処理を定義
-    // created() {
-    // 今回は特に処理はありません
-    // },
-
-    // テンプレート内で使う変数を定義
-    data: function data() {
-        return {
-            title: '',
-            content: ''
-        };
-    },
-
-    // メソッドの定義。ここでv-on:click=''で記述したpostArticle()メソッドを定義します
-    methods: {
-        postArticle: function postArticle() {
-            // テンプレートのv-modelのtitleとcontentの入力値を取得しarticleという配列に格納
-            var article = {
-                'title': this.title,
-                'content': this.content
-            };
-
-            var id = 1;
-
-            // axios.postの第１引数にルートを、第２引数にポストするデータの配列を渡します
-            axios.post('/api/article/' + id, article).then(function (res) {
-
-                // テストのため返り値をコンソールに表示
-                console.log(res.data.title);
-                console.log(res.data.content);
-            });
-        }
-    }
-});
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", [
-      _c("h4", [_vm._v("記事投稿")]),
-      _vm._v(" "),
-      _c("div", [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.title,
-              expression: "title"
-            }
-          ],
-          attrs: { type: "text", name: "title", placeholder: "タイトル" },
-          domProps: { value: _vm.title },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.title = $event.target.value
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.content,
-              expression: "content"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { rows: "4", placeholder: "コンテンツ" },
-          domProps: { value: _vm.content },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.content = $event.target.value
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.title))]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.content))]),
-        _vm._v(" "),
-        _c("button", { on: { click: _vm.postArticle } }, [_vm._v("投稿")])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-ebc215b2", module.exports)
   }
 }
 
