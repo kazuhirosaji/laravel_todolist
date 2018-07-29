@@ -19,3 +19,12 @@ Route::get('/{any}', function () {
 //     $hello = new App\CustomLibs\MyClass;
 //     return $hello->calendarEvent();
 // });
+
+
+// use Illuminate\Http\Request;
+
+// Route::get('/callback', function(Request $request){
+//     logger($request->query('code'));
+//     $hello = new App\CustomLibs\MyClass;
+//     return $hello->calendarCallback($request->query('code'));
+// });
