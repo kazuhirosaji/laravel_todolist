@@ -14,3 +14,8 @@
 Route::get('/{any}', function () {
     return view('app');
 })->where('any', '.*');
+
+// Route::get('/calendar',function(){
+//     $hello = new App\CustomLibs\MyClass;
+//     return $hello->calendarEvent();
+// });
