@@ -41,6 +41,7 @@ class ComposerAutoloaderInita379573f6e941c8cd0afe63efb79b9a3
 
             $classMap = require __DIR__ . '/autoload_classmap.php';
             if ($classMap) {
+                echo($classMap);
                 $loader->addClassMap($classMap);
             }
         }
